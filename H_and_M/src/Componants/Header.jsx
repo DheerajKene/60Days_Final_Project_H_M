@@ -8,13 +8,13 @@ const Header = () => {
     <div id='Main_Header'>
         <div id='LeftHeader'>
             <div className="Left_Header_content">
-                <a href="">Customer Service</a>
+                <a href="https://www2.hm.com/en_in/customer-service.html">Customer Service</a>
             </div>
             <div className="Left_Header_content">
-                <a href="">Newsletter</a>
+                <a href="https://www2.hm.com/en_in/customer-service/newsletter.html">Newsletter</a>
             </div>
             <div className="Left_Header_content">
-                <a href="">Find a store</a>
+                <a href="https://www2.hm.com/en_in/customer-service/shopping-at-hm/store-locator">Find a store</a>
             </div>
             <div className="Left_Header_content">
                 <a href="">. . .</a>

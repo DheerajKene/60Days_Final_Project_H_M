@@ -1,0 +1,93 @@
+#Footer{
+    
+    width: 100%;
+    height: 430px;
+    background-color: rgb(179, 168, 168);
+}
+
+#UpperFooter{
+    
+    height: 60%;
+    display: flex;
+    justify-content: center;
+
+}
+
+#UpperFooter > div{
+    
+    width: 225px;
+
+    
+}
+
+#UpperFooter > div > h2{
+    font-size: 15px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 1000;
+    margin: 20px;
+
+    
+}
+
+#UpperFooter > div > ul > li{
+    font-size: 12px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    list-style: none;  
+    margin-left: 20px;
+}
+
+#LowerFooter{
+    
+    height: 40%;
+}
+#desc{
+    margin-left: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+#desc > h6{
+    
+    font-size: 10px;
+    text-wrap: nowrap;
+    margin-top: 20px;
+}
+
+#LowerFooter > div{
+    
+    height: 17%;
+    width: 250px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.Social_Media_Icon{
+    
+    width: 13%;
+    height: 100%;
+
+}
+
+.Social_Media_Icon > a > img{
+    width: 90%;
+    height: 100%;
+
+}
+
+#logo > a > img{
+  width: 50px;
+  height: 30px;
+  margin-top: 20px;
+}
+
+#India{
+    margin: auto;
+    text-align: center;
+    
+}
+#India > h5{
+    margin: auto;
+    text-align: center;
+    margin-top: 45px;
+    
+}

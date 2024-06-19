@@ -1,0 +1,25 @@
+/* Style For Image Slider */
+.slider-container {
+    width: 80%;
+    overflow: hidden;
+    margin: auto;
+  }
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+  }
+  .slider-item {
+    min-width: 50%;
+    box-sizing: border-box;
+    /* margin: 10px; */
+    
+  }
+  
+  .Imgstyle{
+      border: 2px solid rgb(254, 248, 248);
+      border-radius: 10px;
+      height: 180px;
+      width: 80%;
+      display: block;
+      margin: auto;
+  }

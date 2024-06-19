@@ -27,8 +27,38 @@ import {
     Select,
   } from '@chakra-ui/react'
 import Sign_In_box from './Sign_In_box'
+import { useContext } from 'react'
+import { AuthContext } from '../Context/AuthContext'
 
 const RegisterBox = () => {
+
+    const Data = []
+    const[email, setEmail] = useState('');
+    const[passward, setPassward] = useState("");
+    const[Dob, setDob] = useState("");
+    const[FirstName, setFirstName] = useState("");
+    const[Lastname, setLasteName] = useState("")
+    const[gender, setGender] = useState("")
+    const[PostalCode, setPostalCode] = useState("");
+
+    const{register} = useContext(AuthContext);
+
+    const UserData = {
+      email,
+      passward,
+      Dob,
+      FirstName,
+      Lastname,
+      gender,
+      PostalCode,
+    }
+
+    Data.push(UserData);
+
+    function saveData(){
+      register(UserData);
+    }
+
  
     const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -39,7 +69,7 @@ const RegisterBox = () => {
       <>
         <Button onClick={onOpen} variant='outline' colorScheme='black' fontFamily='Candara'>
           Become a member</Button>
-  
+      
         <Modal
           initialFocusRef={initialRef}
           finalFocusRef={finalRef}
@@ -55,17 +85,17 @@ const RegisterBox = () => {
             <p style={{fontSize:'12px', fontFamily:'Candara', marginLeft:'25px', textWrap:'auto'}}>Become a member-don't miss out on deals, offers,discounts and bonus vouchers.</p>
               <FormControl>
                 <FormLabel fontFamily='Candara' fontSize='15px' fontWeight='1000'>Email</FormLabel>
-                <Input ref={initialRef} placeholder='Email' />
+                <Input value={email} onChange={(e)=>{setEmail(e.target.value)}} ref={initialRef} placeholder='Email' />
               </FormControl>
   
               <FormControl mt={4}>
                 <FormLabel fontFamily='Candara' fontSize='15px' fontWeight='1000'>Create a passward</FormLabel>
-                <Input placeholder='Passward' />
+                <Input value={passward } onChange={(e)=>{setPassward(e.target.value)}} placeholder='Passward' />
               </FormControl>
 
               <FormControl mt={4}>
                 <FormLabel fontFamily='Candara' fontSize='15px' fontWeight='1000'>Date of Birth</FormLabel>
-                <Input fontFamily='Candara' type='date' placeholder='Passward' />
+                <Input value={Dob} onChange={(e)=>{setDob(e.target.value)}} fontFamily='Candara' type='date' placeholder='Passward' />
               </FormControl>
               <p style={{fontSize:'12px', fontFamily:'Candara', marginLeft:'25px', textWrap:'auto'}}>H&M want to give you a special treat on your birthday</p>
             </ModalBody>
@@ -91,25 +121,25 @@ const RegisterBox = () => {
             
                     <FormControl>
                         <FormLabel fontFamily='Candara' fontSize='15px' fontWeight='1000'>First Name</FormLabel>
-                        <Input ref={initialRef}  />
+                        <Input value={FirstName} onChange={(e)=>{setFirstName(e.target.value)}} ref={initialRef}  />
                     </FormControl>
         
                     <FormControl mt={4}>
                         <FormLabel fontFamily='Candara' fontSize='15px' fontWeight='1000'>Last Name</FormLabel>
-                        <Input />
+                        <Input value={Lastname} onChange={(e)=>{setLasteName(e.target.value)}}/>
                     </FormControl>
 
                     <FormControl mt={4}>
                     <FormLabel fontFamily='Candara' fontSize='15px' fontWeight='1000'>Select Gender</FormLabel>
-                        <Select fontFamily='Candara' fontSize='15px' placeholder='Select option'>
-                            <option value='option1' style={{fontFamily:'Candara', fontSize:'15px'}}>Male</option>
-                            <option value='option2'>Female</option>
+                        <Select value={gender} onChange={(e)=>{setGender(e.target.value)}} fontFamily='Candara' fontSize='15px' placeholder='Select option'>
+                            <option value='Male' style={{fontFamily:'Candara', fontSize:'15px'}}>Male</option>
+                            <option value='Female'>Female</option>
                         </Select>
                     </FormControl>
 
                     <FormControl mt={4}>
                         <FormLabel fontFamily='Candara' fontSize='15px' fontWeight='1000'>Postal Code</FormLabel>
-                        <Input />
+                        <Input value={PostalCode} onChange={(e)=>{setPostalCode(e.target.value)}}/>
                     </FormControl>
                     </ModalBody>
 
@@ -118,7 +148,7 @@ const RegisterBox = () => {
             </Accordion>
   
             <ModalFooter>
-              <Button variant='outline' bg='black' textColor='white' fontFamily='Candara' mr={1}>
+              <Button onClick={saveData} variant='outline' bg='black' textColor='white' fontFamily='Candara' mr={1}>
                 Become a member
               </Button>
               <Button variant='outline' colorScheme='black' fontFamily='Candara' onClick={()=>{window.location.href = <Sign_In_box/>}}>Sign in
@@ -127,6 +157,7 @@ const RegisterBox = () => {
             </ModalFooter>
           </ModalContent>
         </Modal>
+        
       </>
     )
       }

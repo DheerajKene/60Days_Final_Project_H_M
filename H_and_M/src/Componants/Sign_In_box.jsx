@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useRef } from 'react'
 import { Image } from '@chakra-ui/react'
 import RegisterBox from './RegisterBox'
@@ -23,6 +23,42 @@ const Sign_In_box = () => {
 
   const initialRef = React.useRef(null)
   const finalRef = React.useRef(null)
+  const[LoginEmail, setLoginEmail] = useState("");
+  const[LoginPass, setloginPass] = useState("");
+
+  let data;
+  function Loaddata(){
+    let savedData = JSON.parse(localStorage.getItem("Data"));
+    if(savedData){
+      data = savedData;
+    }
+
+  }
+  console.log(data)
+
+
+  function HandleLogin(e){
+
+  if((LoginEmail.length == 0) && (LoginPass.length == 0)){
+    alert("Please enter correct crediantials");
+
+  }else{
+    let narr = data.filter(function(ele, i){
+    return ((ele.email === LoginEmail) && (ele.password === LoginPass));
+  });
+
+    if(narr.length > 0){
+      alert("Login Successful...")
+      
+    }
+    else{
+      alert("Check Crediantials..!!");
+      alert("If you are not logged in, Please create your account first.");
+    }
+  
+  }
+    
+}
 
   return (
     <>
@@ -49,23 +85,24 @@ const Sign_In_box = () => {
           <ModalBody pb={6}>
             <FormControl>
               <FormLabel>Email</FormLabel>
-              <Input ref={initialRef} placeholder='Email' />
+              <Input value={LoginEmail} onChange={(e)=>{setLoginEmail(e.target.value)}} ref={initialRef} placeholder='Email' />
             </FormControl>
 
             <FormControl mt={4}>
               <FormLabel>Passward</FormLabel>
-              <Input placeholder='Passward' />
+              <Input value={LoginPass} onChange={(e)=>{setloginPass(e.target.value)}} placeholder='Passward' />
             </FormControl>
           </ModalBody>
 
           <ModalFooter>
-            <Button variant='outline' bg='black' textColor='white' fontFamily='Candara' mr={3}>
+            <Button onClick={HandleLogin} variant='outline' bg='black' textColor='white' fontFamily='Candara' mr={3}>
               Sign in
             </Button>
             <RegisterBox/> 
           </ModalFooter>
         </ModalContent>
       </Modal>
+      {Loaddata()}
     </>
   )
 }
