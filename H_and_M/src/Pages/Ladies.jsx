@@ -30,7 +30,7 @@ const Ladies = () => {
             </div>
 
 
-            <Image_Slider/>
+            {/* <Image_Slider/> */}
 
 {/* ---------------Notification Bar---------------             */}
             <a href="">
