@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useRef } from 'react'
 import { Image } from '@chakra-ui/react'
 import RegisterBox from './RegisterBox'
+import { useContext } from 'react'
+import { AuthContext } from '../Context/AuthContext'
 import {
     Button,
     Modal,
@@ -21,42 +23,48 @@ const Sign_In_box = () => {
  
   const { isOpen, onOpen, onClose } = useDisclosure()
 
-  const initialRef = React.useRef(null)
-  const finalRef = React.useRef(null)
+  const initialRef = useRef(null)
+  const finalRef = useRef(null)
   const[LoginEmail, setLoginEmail] = useState("");
   const[LoginPass, setloginPass] = useState("");
+  const{DataArr}  = useContext(AuthContext);
+ 
 
-  let data;
+  var data = [];
   function Loaddata(){
     let savedData = JSON.parse(localStorage.getItem("Data"));
+    
     if(savedData){
-      data = savedData;
-    }
-
-  }
-  console.log(data)
-
-
-  function HandleLogin(e){
-
-  if((LoginEmail.length == 0) && (LoginPass.length == 0)){
-    alert("Please enter correct crediantials");
-
-  }else{
-    let narr = data.filter(function(ele, i){
-    return ((ele.email === LoginEmail) && (ele.password === LoginPass));
-  });
-
-    if(narr.length > 0){
-      alert("Login Successful...")
+      data.push(savedData)
+      console.log(data)
       
     }
-    else{
-      alert("Check Crediantials..!!");
-      alert("If you are not logged in, Please create your account first.");
-    }
-  
+
   }
+  
+
+  function HandleLogin(){
+  
+    if((LoginEmail.length == 0) && (LoginPass.length == 0)){
+      alert("Please enter correct crediantials");
+  
+    }else{
+      
+      var narr = data.filter(function(ele) {
+      return ((ele.email === LoginEmail) && (ele.passward === LoginPass));
+      
+    });
+  
+      if(narr.length > 0){
+        alert("Login Successful...")
+        // window.location.href = '/'
+      }
+      else{
+        alert("Check Crediantials..!!");
+        alert("If you are not logged in, Please create your account first.");
+      }
+    
+    }
     
 }
 
@@ -105,6 +113,7 @@ const Sign_In_box = () => {
       {Loaddata()}
     </>
   )
+  
 }
   
 

@@ -16,7 +16,7 @@ const Navbar = () => {
             <ul className='NavLinks'>
                 <li className='Underline'>
                 {/* ---------------------------Clothings------------------------ */}
-                    <a className='MainLinks' href="">Ladies</a>
+                    <a className='MainLinks' href="/Ladies.jsx">Ladies</a>
                     <div className='mega-box'>
                         <div className='content'>
                             {/* <div className="rowimg">

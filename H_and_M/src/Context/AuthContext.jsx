@@ -20,11 +20,11 @@ export const AuthContextProvider = ({children}) => {
     }
 
     function register(obj){
-        DataArr.push(obj);
+        
         console.log(DataArr)
     }
 
   return (
-    <AuthContext.Provider value={register}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{register, DataArr}}>{children}</AuthContext.Provider>
   )
 }

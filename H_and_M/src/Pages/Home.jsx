@@ -1,8 +1,15 @@
-<>
+import React from 'react'
+import '../StyleComponant/Ladies.css'
+import '../StyleComponant/Image.css'
+import DescriptionBox from '../Componants/DescriptionBox'
+import Footer from '../Componants/Footer'
+import Image_Slider from '../Componants/Image_Slider'
+
+const Home = () => {
+  return (
+    <>
     <div id='MainBody'>
-        <div id='leftSidebar'>
-            <h3>bhdbcd</h3>
-        </div>
+        <div id='leftSidebar'></div>
 {/* ---------------Main Image section---------------             */}        
         <div id='middleImg'>
 
@@ -69,3 +76,7 @@
 {/* ---------------Footer Section---------------             */}    
     <Footer/>
     </>
+  )
+}
+
+export default Home

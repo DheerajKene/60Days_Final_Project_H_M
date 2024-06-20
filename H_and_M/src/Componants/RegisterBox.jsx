@@ -41,7 +41,7 @@ const RegisterBox = () => {
     const[gender, setGender] = useState("")
     const[PostalCode, setPostalCode] = useState("");
 
-    const{register} = useContext(AuthContext);
+    const{register, DataArr} = useContext(AuthContext);
 
     const UserData = {
       email,
@@ -53,11 +53,20 @@ const RegisterBox = () => {
       PostalCode,
     }
 
-    Data.push(UserData);
 
-    function saveData(){
-      register(UserData);
+    function saveData(key, arr){
+      localStorage.setItem(key, JSON.stringify(arr));
     }
+    // Data.push(UserData);
+
+    function RegData(){
+      Data.push(UserData);
+      saveData("Data", Data);
+      alert("Registration Successful");
+      
+    }
+
+    
 
  
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -148,7 +157,7 @@ const RegisterBox = () => {
             </Accordion>
   
             <ModalFooter>
-              <Button onClick={saveData} variant='outline' bg='black' textColor='white' fontFamily='Candara' mr={1}>
+              <Button onClick={RegData} variant='outline' bg='black' textColor='white' fontFamily='Candara' mr={1}>
                 Become a member
               </Button>
               <Button variant='outline' colorScheme='black' fontFamily='Candara' onClick={()=>{window.location.href = <Sign_In_box/>}}>Sign in
