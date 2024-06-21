@@ -62,7 +62,7 @@ All our brands and business ventures share the same passion for making great and
  <h3>Contributers </h3>
  <ol>
   
-  <li>Dheeraj Kene: [https://github.com/kakashi10-23](https://github.com/DheerajKene) </li>
+  <li>Dheeraj Kene:  https://github.com/DheerajKene </li>
   
  </ol>
 
